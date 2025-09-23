@@ -9,11 +9,13 @@ import {
 import { UsersService } from '../users.service';
 import { User } from '../entity/user.entity';
 import { CreateUserDto } from '../dto/create-user.dto';
+import { Public } from 'src/auth/auth.public';
 
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
+  @Public()
   @Get()
   async findAll(): Promise<User[]> {
     return await this.usersService.findAll();

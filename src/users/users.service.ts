@@ -22,9 +22,22 @@ export class UsersService {
     return user;
   }
 
-  async create(createUserDto: { firstName: string; lastName: string }): Promise<User> {
+  async create(createUserDto: {
+    firstName: string;
+    lastName: string;
+    password: string;
+    email: string;
+  }): Promise<User> {
     const user = this.usersRepository.create(createUserDto);
     return this.usersRepository.save(user);
+  }
+
+  async findOneByEmail(email: string): Promise<User> {
+    const user = await this.usersRepository.findOneBy({ email });
+    if (!user) {
+      throw new NotFoundException(`User with email ${email} not found`);
+    }
+    return user;
   }
 
   async remove(id: number): Promise<void> {

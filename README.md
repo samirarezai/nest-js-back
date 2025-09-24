@@ -104,3 +104,5 @@ docker run --name nestjs_db \
  -e MYSQL_DATABASE=nestjs_db \
  -p 3306:3306 \
  -d mysql:8.0
+
+docker-compose up -d

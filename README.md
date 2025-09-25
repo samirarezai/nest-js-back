@@ -99,10 +99,4 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Database
 
-docker run --name nestjs_db \
- -e MYSQL_ROOT_PASSWORD=1234 \
- -e MYSQL_DATABASE=nestjs_db \
- -p 3306:3306 \
- -d mysql:8.0
-
 docker-compose up -d
